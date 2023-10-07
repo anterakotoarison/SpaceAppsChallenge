@@ -14,7 +14,7 @@ def open_explore_page():
     choice_label.pack()
     choice_label.place(relx=0.5, rely=0.5, anchor="center")
 
-    image = tk.PhotoImage(file="")  # Replace with the path to your image
+    image = tk.PhotoImage(file="satimage.jpg")  # Replace with the path to your image
     image_label = tk.Label(new_window, image=image)
     image_label.place(relx=0.5, rely=0.5, anchor="center")
     image_label.pack()
