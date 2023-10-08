@@ -70,7 +70,7 @@ def open_new_window():
     for widget in root.winfo_children():
         widget.destroy()
 
-    background_image = Image.open("images/nearEarth.png")  # Replace with the path to your image
+    background_image = Image.open("images/bgdimage.png")  # Replace with the path to your image
 
     background_image = background_image.resize((root.winfo_screenwidth(), root.winfo_screenheight()), Image.ANTIALIAS)
     photo = ImageTk.PhotoImage(background_image)
