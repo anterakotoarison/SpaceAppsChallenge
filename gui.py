@@ -1,9 +1,3 @@
-# NASA Space Apps Challenge 2023
-# Canadian Space Agency Challenge 1 (Moonwalker)
-# Written by Nicole Tan and Antenaina Rakotoarison
-# October 7 - 8 2023
-
-#import libraries
 import tkinter as tk
 from PIL import Image, ImageTk
 from tkinter import PhotoImage
@@ -70,7 +64,7 @@ def open_new_window():
     for widget in root.winfo_children():
         widget.destroy()
 
-    background_image = Image.open("images/nearEarth.png")  # Replace with the path to your image
+    background_image = Image.open("bgdimage.png")  # Replace with the path to your image
 
     background_image = background_image.resize((root.winfo_screenwidth(), root.winfo_screenheight()), Image.ANTIALIAS)
     photo = ImageTk.PhotoImage(background_image)
