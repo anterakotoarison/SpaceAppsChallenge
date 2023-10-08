@@ -15,7 +15,7 @@ def open_explore_page():
     for widget in root.winfo_children():
         widget.destroy()
 
-    background_image = PhotoImage(file="explore_background.png")  # Replace with the path to your image
+    background_image = PhotoImage(file="images/explore_background.png")  # Replace with the path to your image
 
     # Create a label to display the background image
     background_label = tk.Label(root, image=background_image)
@@ -64,7 +64,7 @@ def open_new_window():
     for widget in root.winfo_children():
         widget.destroy()
 
-    background_image = Image.open("bgdimage3.png")  # Replace with the path to your image
+    background_image = Image.open("bgdimage.png")  # Replace with the path to your image
 
     background_image = background_image.resize((root.winfo_screenwidth(), root.winfo_screenheight()), Image.ANTIALIAS)
     photo = ImageTk.PhotoImage(background_image)
@@ -108,7 +108,7 @@ def open_main_window():
     for widget in root.winfo_children():
         widget.destroy()
 
-    background_image = Image.open("nextbgd.png")  # Replace with the path to your image
+    background_image = Image.open("images/nextbgd.png")  # Replace with the path to your image
 
     background_image = background_image.resize((root.winfo_screenwidth(), root.winfo_screenheight()), Image.ANTIALIAS)
     photo = ImageTk.PhotoImage(background_image)
