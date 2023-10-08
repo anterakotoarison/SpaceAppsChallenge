@@ -14,6 +14,25 @@ root = tk.Tk()
 # Set the window title
 root.title("Space Date Explore Application")
 
+def open_final_summary():
+    new_window = tk.Toplevel()
+    new_window.title("Summary Page")
+
+    initial_width = 800
+    initial_height = 1000
+    new_window.geometry(f"{initial_width}x{initial_height}")
+
+    background_image = PhotoImage(file="images/Satellite Altitudes.png")  # Replace with the path to your image
+
+    # Create a label to display the background image
+    background_label = tk.Label(new_window, image=background_image)
+    background_label.place(relwidth=1, relheight=1)  
+
+    # Create other widgets (labels, buttons, etc.) here
+
+    # Keep a reference to the background image
+    new_window.background_image = background_image
+
 def exit_app():
         root.destroy()
 
@@ -56,7 +75,7 @@ def open_explore_page():
     back_button.pack()
     back_button.place(relx=0.5, rely=0.57, anchor="center")
 
-    summary_button = tk.Button(root, text="FINAL SUMMARY REPORT", command=open_new_window , padx=0, pady=0, borderwidth=0, highlightthickness=0, compound="top")
+    summary_button = tk.Button(root, text="FINAL SUMMARY REPORT", command=open_final_summary , padx=0, pady=0, borderwidth=0, highlightthickness=0, compound="top")
     summary_button.pack()
     summary_button.place(relx=0.5, rely=0.53, anchor="center")
 
