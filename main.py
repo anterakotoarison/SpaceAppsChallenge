@@ -24,7 +24,7 @@ def open_final_summary():
     initial_height = 1000
     new_window.geometry(f"{initial_width}x{initial_height}")
 
-    background_image = PhotoImage(file="images/Screen Shot 2023-10-07 at 8.36.38 PM.png")  # Replace with the path to your image
+    background_image = PhotoImage(file="images/summaryReport.png")  # Replace with the path to your image
 
     # Create a label to display the background image
     background_label = tk.Label(new_window, image=background_image)
