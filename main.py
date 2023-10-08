@@ -7,12 +7,14 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 from tkinter import PhotoImage
+from orbit import orbit_plot
 
 # Create the main application window
 root = tk.Tk()
 
 # Set the window title
 root.title("Space Date Explore Application")
+
 
 def open_final_summary():
     new_window = tk.Toplevel()
@@ -63,7 +65,7 @@ def open_explore_page():
     weather_button.pack()
     weather_button.place(relx=0.76, rely=0.26, anchor="center")
 
-    deorbiting_button = tk.Button(root, text="VIEW DE-ORBITING SATELLITES", padx=0, pady=0, borderwidth=0, highlightthickness=0, compound="top")
+    deorbiting_button = tk.Button(root, text="VIEW DE-ORBITING SATELLITES", command = orbit_plot,padx=0, pady=0, borderwidth=0, highlightthickness=0, compound="top")
     deorbiting_button.pack()
     deorbiting_button.place(relx=0.26, rely=0.76, anchor="center")
 
