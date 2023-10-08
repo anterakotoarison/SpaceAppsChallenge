@@ -64,16 +64,17 @@ def open_new_window():
     for widget in root.winfo_children():
         widget.destroy()
 
-    background_image = PhotoImage(file="nextbgd.png")  # Replace with the path to your image
+    background_image = Image.open("mainbackground.png")  # Replace with the path to your image
 
-    # Create a label to display the background image
-    background_label = tk.Label(root, image=background_image)
-    background_label.place(relwidth=1, relheight=1)  
+    background_image = background_image.resize((root.winfo_screenwidth(), root.winfo_screenheight()), Image.ANTIALIAS)
+    photo = ImageTk.PhotoImage(background_image)
 
-    # Create other widgets (labels, buttons, etc.) here
+    # Create a Label to display the background image
+    background_label = tk.Label(root, image=photo)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-    # Keep a reference to the background image
-    root.background_image = background_image
+    # Keep a reference to the photo to prevent it from being garbage collected
+    background_label.photo = photo
     
     initial_width = 1070
     initial_height = 1050
@@ -107,16 +108,22 @@ def open_main_window():
     for widget in root.winfo_children():
         widget.destroy()
 
-    background_image = PhotoImage(file="mainbackground.png")  # Replace with the path to your image
+    background_image = Image.open("nextbgd.png")  # Replace with the path to your image
 
-    # Create a label to display the background image
-    background_label = tk.Label(root, image=background_image)
-    background_label.place(relwidth=1, relheight=1)  
+    background_image = background_image.resize((root.winfo_screenwidth(), root.winfo_screenheight()), Image.ANTIALIAS)
+    photo = ImageTk.PhotoImage(background_image)
+
+    # Create a Label to display the background image
+    background_label = tk.Label(root, image=photo)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+    # Keep a reference to the photo to prevent it from being garbage collected
+    background_label.photo = photo  
 
     # Create other widgets (labels, buttons, etc.) here
 
-    # Keep a reference to the background image
-    root.background_image = background_image
+    # # Keep a reference to the background image
+    # root.background_image = background_image
     # Create a Label for "WELCOME"
     welcome_label = tk.Label(root, text="WELCOME", padx=0, pady=0, borderwidth=0, highlightthickness=0, compound="top")
     # Place it in the center of the window
