@@ -7,11 +7,12 @@ root = tk.Tk()
 # Set the window title
 root.title("Welcome Screen")
 
+
 def calculate_image_size():
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
     image_width = screen_width // 2  # Each image will occupy 1/2 of the screen width
-    image_height = screen_height // 2  # Each image will occupy 1/2 of the screen height
+    image_height = screen_height // 2 # Each image will occupy 1/2 of the screen height
     return image_width, image_height
 
 def open_explore_page():
@@ -20,20 +21,42 @@ def open_explore_page():
 
     image_width, image_height = calculate_image_size()
 
-    image_frame = tk.Frame(new_window, padx=20, pady=20)
+    # Create a frame for the images and add padding
+    image_frame = tk.Frame(new_window, padx=3, pady=3)
     image_frame.pack(fill="both", expand=True)
 
+    image_paths = ["image1.png", "image2.png", "image3.png", "image4.png"]
+
+    # Load and display images in four quadrants within the frame
     for i, (relx, rely) in enumerate([(0, 0), (0.5, 0), (0, 0.5), (0.5, 0.5)]):
         image_path = f"satimage.png"  # Replace with the correct path to your image
         image = Image.open(image_path).resize((image_width, image_height), Image.ANTIALIAS)
         photo = ImageTk.PhotoImage(image)
-        image_label = tk.Label(new_window, image=photo)
+        image_label = tk.Label(image_frame, image=photo)
         image_label.image = photo  # Important: Keep a reference to the image
-        image_label.place(relx=relx, rely=rely, anchor="nw")  # Adjust the anchor for 
-
+        image_label.grid(row=i // 2, column=i % 2, sticky="nsew")  # Grid layout within the frame
+ 
+        
     choice_label = tk.Label(new_window, text="Choose Data to Explore")
     choice_label.pack()
-    choice_label.place(relx=0.5, rely=0.5, anchor="center")
+    choice_label.place(relx=0.5, rely=0.53, anchor="center")
+
+    altitude_button = tk.Button(new_window, text="VIEW DIFFERENT SATELLITES ALTITUDE RANGES", command=open_explore_page)
+    altitude_button.pack()
+    altitude_button.place(relx=0.26, rely=0.26, anchor="center")
+
+    weather_button = tk.Button(new_window, text="VIEW SPACE WEATHER FORECAST", command=open_explore_page)
+    weather_button.pack()
+    weather_button.place(relx=0.76, rely=0.26, anchor="center")
+
+    deorbiting_button = tk.Button(new_window, text="VIEW DE-ORBITING SATELLITES", command=open_explore_page)
+    deorbiting_button.pack()
+    deorbiting_button.place(relx=0.26, rely=0.76, anchor="center")
+
+    near_button = tk.Button(new_window, text="VIEW NEAR-EARTH ASTERIODS AND CLOSE APPROACHES", command=open_explore_page)
+    near_button.pack()
+    near_button.place(relx=0.76, rely=0.76, anchor="center")
+
     
 
 # Function to be called when the button is clicked
