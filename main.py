@@ -22,7 +22,7 @@ def open_final_summary():
     initial_height = 1000
     new_window.geometry(f"{initial_width}x{initial_height}")
 
-    background_image = PhotoImage(file="images/Satellite Altitudes.png")  # Replace with the path to your image
+    background_image = PhotoImage(file="images/Untitled design.png")  # Replace with the path to your image
 
     # Create a label to display the background image
     background_label = tk.Label(new_window, image=background_image)
